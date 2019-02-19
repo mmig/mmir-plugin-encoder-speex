@@ -1,0 +1,51 @@
+{
+  "name": "mmir-plugin-encoder-speex",
+  "version": "1.0.0",
+  "description": "Cordova plugin for the MMIR framework that adds a JavaScript based FLAC encoder - uses libflac.js (BSD and partially MIT license), see https://github.com/mmig/libflac.js",
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab-cos.b.dfki.de/mmir/mmir-plugin-encoder-speex.git"
+  },
+  "main": "./www/webworker/speexEncoder.js",
+  "directories": {
+    "lib": "./www"
+  },
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "pluginexport"
+  },
+  "keywords": [
+    "audio",
+    "codec",
+    "speex",
+    "mmir"
+  ],
+  "dependencies": {
+    "mmir-plugin-encoder-core": "git+https://gitlab-cos.b.dfki.de/mmir/mmir-plugin-encoder-core.git"
+  },
+  "peerDependencies": {
+    "mmir-lib": "git+https://gitlab-cos.b.dfki.de/mmir/dev_mmir-lib.git#develop/webpack"
+  },
+  "devDependencies": {
+    "mmir-plugin-exports": "git+https://gitlab-cos.b.dfki.de/mmir/mmir-plugin-exports.git"
+  },
+  "cordova": {
+    "id": "mmir-plugin-encoder-speex",
+    "platforms": []
+  },
+  "engines": {
+    "cordovaDependencies": {
+      "1.0.0": {
+        "https://gitlab-cos.b.dfki.de/mmir/mmir-plugin-encoder-core.git": ">=1.0.0"
+      }
+    }
+  },
+  "mmir": {
+    "workers": [
+      "./www/webworker"
+    ]
+  },
+  "author": "russa, DFKI",
+  "license": "MIT"
+}
