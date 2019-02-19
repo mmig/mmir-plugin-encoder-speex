@@ -31,14 +31,16 @@ if(typeof WEBPACK_BUILD !== 'undefined' && WEBPACK_BUILD){
 
 function TheSpeexEncoder(){
 
-	var bits = _malloc(Speex.types.SpeexBits.__size__);
-    _speex_bits_init(bits);
+    var libspeex = self.libspeex;
 
-    var encoder = _speex_encoder_init(_speex_lib_get_mode(1));
-    var buffer_ptr = _malloc(320*2);
-    var buffer = HEAP16.subarray(buffer_ptr/2, buffer_ptr/2+320);
-    var out_buffer_ptr = _malloc(100);
-    var out_buffer = HEAPU8.subarray(out_buffer_ptr, out_buffer_ptr+100);
+    var bits = libspeex._malloc(Speex.types.SpeexBits.__size__);
+    libspeex._speex_bits_init(bits);
+
+    var encoder = libspeex._speex_encoder_init(libspeex._speex_lib_get_mode(1));
+    var buffer_ptr = libspeex._malloc(320*2);
+    var buffer = libspeex.HEAP16.subarray(buffer_ptr/2, buffer_ptr/2+320);
+    var out_buffer_ptr = libspeex._malloc(100);
+    var out_buffer = libspeex.HEAPU8.subarray(out_buffer_ptr, out_buffer_ptr+100);
 
 	//target samplerate for encoding speex wb:
 	var desiredSampleRate = 16000;
@@ -87,10 +89,10 @@ function TheSpeexEncoder(){
                     break;
                 }
                 offset = 0;
-                var status = _speex_encode_int(encoder,buffer_ptr,bits);
-                var count = _speex_bits_nbytes(bits);
-                status = _speex_bits_write(bits,out_buffer_ptr,count);
-                status = _speex_bits_reset(bits);
+                var status = libspeex._speex_encode_int(encoder,buffer_ptr,bits);
+                var count = libspeex._speex_bits_nbytes(bits);
+                status = libspeex._speex_bits_write(bits,out_buffer_ptr,count);
+                status = libspeex._speex_bits_reset(bits);
                 var out_frame = new Uint8Array(count);
                 out_frame.set(out_buffer.subarray(0,count));
                 ret.push(out_frame);
