@@ -43,7 +43,12 @@
   "mmir": {
     "workers": [
       "./www/webworker"
-    ]
+    ],
+    "modes": {
+      "min": {
+        "./www/speex.js": "./www/speex.min.js"
+      }
+    }
   },
   "author": "russa, DFKI",
   "license": "MIT"
