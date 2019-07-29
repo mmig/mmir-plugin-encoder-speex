@@ -1,7 +1,7 @@
 
 if(typeof WEBPACK_BUILD !== 'undefined' && WEBPACK_BUILD){
 
-	require('mmir-lib/workers/workerUtil');
+	require('mmir-lib/lib/workers/workerUtil');
 
 	/**
 	 * MIT license
