@@ -23,12 +23,12 @@
 
     <!-- module implementation for integration into MMIR framework  -->
     <asset
-        src="www/webworker/flacEncoder.js"
-        target="mmirf/workers/flacEncoder.js" />
+        src="www/webworker/speexEncoder.js"
+        target="mmirf/workers/speexEncoder.js" />
 
     <asset
-        src="www/libflac.min.js"
-        target="mmirf/workers/libflac.min.js" />
+        src="www/speex.min.js"
+        target="mmirf/workers/speex.min.js" />
 
     <!--
          DEV version (i.e. not minified) of FLAC encoder
@@ -37,7 +37,7 @@
               in order to use this!
      -->
     <!--asset
-        src="www/libflac.js"
-        target="mmirf/workers/libflac.js" /-->
+        src="www/speex.js"
+        target="mmirf/workers/speex.js" /-->
 
 </plugin>
